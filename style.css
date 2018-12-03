@@ -44,6 +44,14 @@ a:hover {
   margin: 10px 15px;
   color: grey;
 }
+.mess-foot .fa-location-arrow {
+  font-size: 20px;
+  float: right;
+  margin: 10px 15px;
+  color: grey;
+  transform: rotate(45deg);
+  display: none;
+}
 .form-control::placeholder {
     color: lightgrey;
     opacity: 1;
@@ -57,12 +65,12 @@ a:hover {
   z-index: 9999;
 }
 .conv-list-text h3 {
-  font-size: 15px;
+  font-size: 13px;
   color: rgb(36, 36, 41);
   float: left;
 }
 .conv-list-text h4 {
-  font-size: 12px;
+  font-size: 10px;
   color: rgb(52, 55, 61);
   float: left;
   margin: 8px 10px;
@@ -113,13 +121,13 @@ a:hover {
 }
 .hea-d {
   background: #eeeeee;
-  height: 70px;
+  height: 12vh;
   width: 100%;
   padding:15px 10px;
 }
 .sear-ch {
   background: transparent;
-  height: 65px;
+  height: 12vh;
   width: 100%;
   padding: 10px 10px;
   border-bottom: 1px solid grey;
@@ -167,10 +175,9 @@ a:hover {
 }
 .conv-list {
   width: 100%;
-  height: auto;
+  height: 76vh;
   padding: 10px 20px;
-  /* overflow-y: scroll; */
-  /* background: grey; */
+  overflow-y: scroll;
 }
 .conv-list-text {
   height: 70px;
@@ -201,7 +208,7 @@ a:hover {
 }
 .mess-main {
   height: calc(100vh - 140px);
-  overflow: auto;
+  overflow-y: scroll;
   width: 100%;
 }
 .text-person {
