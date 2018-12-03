@@ -1,6 +1,8 @@
 
 $(document).ready(function() {
 
+//funzioni
+
   function random_int_number(min, max) {
     return Math.floor(Math.random() * (max - min +  1) + min);
   }
@@ -56,5 +58,20 @@ $(document).ready(function() {
    $('.fa-microphone').hide();
    $('.fa-location-arrow').show();
  });
+
+//inserisci messaggi verdi o bianchi
+
+ $('.invio').click(function() {
+   var mio_mex = $('.form-control-i').val();
+   console.log(mio_mex);
+   $('.messages .mess-output p').text(mio_mex);
+   var d = new Date();
+   var n = d.getHours();
+   var m = d.getMinutes();
+   console.log(n);
+   $('.messages .mess-output h5').text(n + ':' + m);
+  });
+
+
 
 });
