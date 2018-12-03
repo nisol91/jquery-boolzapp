@@ -236,7 +236,7 @@ a:hover {
   top: 100px;
   left: 60px;
   box-shadow: -1px 1px rgb(160, 173, 181);
-  padding: 2px 5px;
+  padding: 3px   5px;
 }
 .mess-output {
   height: auto;
@@ -248,7 +248,7 @@ a:hover {
   top: 150px;
   left: 300px;
   box-shadow: -1px 1px rgb(160, 173, 181);
-  padding: 2px 5px;
+  padding: 3px   5px;
   /* display: none; */
 }
 

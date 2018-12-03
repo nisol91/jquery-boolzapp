@@ -1,13 +1,20 @@
 
 $(document).ready(function() {
 
+  function random_int_number(min, max) {
+    return Math.floor(Math.random() * (max - min +  1) + min);
+  }
+
 //generazione di contatti
 
+  var orari_accesso = [ '12:50', '18:42', '15:30', '10:59', '14:02']
   var contatto = {
     'numero' : 6,
     'nome' : ['', 'Guido', 'Giulia', 'Francesco', 'Cecilia', 'Andrea', 'Riccardo'],
     'testi' : ['', 'Ciao, come va?', 'Domani a che ora ci troviamo?', 'Buonasera', 'Buonanotte', 'Posso chiamarti? :)', 'Ottimo!!'],
-    'immagine' : ['', "https://images.wallpaperscraft.com/image/mountains_clouds_trees_snow_119169_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_starry_sky_milky_way_night_119973_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_trees_frozen_lake_winter_landscape_93344_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_landscape_mt_rainier_washington_grass_hdr_90605_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_cordillera_sky_sunset_sun_clouds_95556_3840x2160.jpg"]
+    'immagine' : ['', "https://images.wallpaperscraft.com/image/mountains_clouds_trees_snow_119169_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_starry_sky_milky_way_night_119973_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_trees_frozen_lake_winter_landscape_93344_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_landscape_mt_rainier_washington_grass_hdr_90605_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_cordillera_sky_sunset_sun_clouds_95556_3840x2160.jpg"],
+    'orario' : ['', '12:50', '18:42', '15:30', '10:59', '14:02'],
+    'stato' : ['', 'Online', 'ultimo accesso alle ore ' + orari_accesso[random_int_number(0, 5)], 'Sta scrivendo']
   };
   var num_cont = contatto.numero;
   console.log(contatto.nome[2]);
@@ -21,17 +28,26 @@ $(document).ready(function() {
    $('.conv-list .con-item:nth-child(' + i + ') h3').text(contatto.nome[i])
    $('.conv-list .con-item:nth-child(' + i + ') h4').text(contatto.testi[i])
    $('.conv-list .con-item:nth-child(' + i + ') img').attr('src', contatto.immagine[i]);
+   $('.conv-list .con-item:nth-child(' + i + ') p').text(contatto.orario[i]);
   }
 
+
 //cambia nome contatto selezionato
+
+
 
   $('.con-item').click(function(event) {
     var nome = $(this).find('h3').text();
     var scritte = $(this).find('h4').text();
+    var ora = $(this).find('p').text();
+    var state = contatto.stato[random_int_number(0, 3)];
     console.log(nome);
     console.log(scritte);
-    $('.messages h3').text(nome)
-    $('.messages .mess-input p').text(scritte)
+    $('.messages h3').text(nome);
+    $('.messages .mess-input p').text(scritte);
+    $('.messages .mess-input h5').text(ora);
+    $('.messages .text-person p').text(state);
+
   });
 
 //mic diventa freccia se scrivo testo
