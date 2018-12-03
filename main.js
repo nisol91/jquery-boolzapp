@@ -1,6 +1,8 @@
 
 $(document).ready(function() {
 
+//generazione di contatti
+
   var contatto = {
     'numero' : 6,
     'nome' : ['', 'Guido', 'Giulia', 'Francesco', 'Cecilia', 'Andrea', 'Riccardo'],
@@ -20,5 +22,23 @@ $(document).ready(function() {
    $('.conv-list .con-item:nth-child(' + i + ') h4').text(contatto.testi[i])
    $('.conv-list .con-item:nth-child(' + i + ') img').attr('src', contatto.immagine[i]);
   }
+
+//cambia nome contatto selezionato
+
+  $('.con-item').click(function(event) {
+    var nome = $(this).find('h3').text();
+    var scritte = $(this).find('h4').text();
+    console.log(nome);
+    console.log(scritte);
+    $('.messages h3').text(nome)
+    $('.messages .mess-input p').text(scritte)
+  });
+
+//mic diventa freccia se scrivo testo
+
+ $('.form-control-i').click(function() {
+   $('.fa-microphone').hide();
+   $('.fa-location-arrow').show();
+ });
 
 });
