@@ -248,7 +248,7 @@ a:hover {
   top: 100px;
   left: 60px;
   box-shadow: -1px 1px rgb(160, 173, 181);
-  padding: 3px   5px;
+  padding: 10px 10px;
   margin: 10px 0;
 }
 .mess-output {
@@ -261,7 +261,7 @@ a:hover {
   top: 150px;
   left: 300px;
   box-shadow: -1px 1px rgb(160, 173, 181);
-  padding: 3px   5px;
+  padding: 10px 10px;
   margin: 10px 0;
 }
 .ora-check {

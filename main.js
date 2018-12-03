@@ -65,7 +65,7 @@ $(document).ready(function() {
    $('.fa-location-arrow').show();
  });
 
-//inserisci messaggi verdi o bianchi
+//inserisci messaggi verdi 
 
 var new_cont = $('.mess-output').clone()
 
