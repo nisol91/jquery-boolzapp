@@ -44,13 +44,17 @@ $(document).ready(function() {
     var nome = $(this).find('h3').text();
     var scritte = $(this).find('h4').text();
     var ora = $(this).find('p').text();
+    var immagine_prof = $(this).find('img').attr('src');
     var state = contatto.stato[random_int_number(0, 3)];
+
     console.log(nome);
     console.log(scritte);
     $('.messages h3').text(nome);
     $('.messages .mess-input p').text(scritte);
     $('.messages .mess-input h5').text(ora);
     $('.messages .text-person p').text(state);
+    $('.messages .prof-pic img').attr('src', immagine_prof);
+
 
   });
 
@@ -70,7 +74,6 @@ var new_cont = $('.mess-output').clone()
     var copy = new_cont.clone();
     $('.mess-main').append(copy);
     copy.removeClass('nascondi');
-    // copy.addClass('messaggio');//dovevo farlo se no poi nella spunta hover non mi riconosceva il div dei messaggi in output (credo per colpa del fatto che il div originale sia nascosto)
 
     var mio_mex = $('.form-control-i').val();
     console.log(mio_mex);
@@ -117,7 +120,7 @@ var new_cont = $('.mess-output').clone()
     $(this).find('.fa-check').addClass('nascondi');
   });
 
-//NON FUNZIONA SUI mess-output
+//NON FUNZIONA SUI mess-output (per colpa del clone credo)
 
   $('.mess-main div').mouseenter(function() {
     $(this).find('.fa-check').show()
