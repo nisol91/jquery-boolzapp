@@ -109,6 +109,12 @@ a:hover {
 .mess-input p, .mess-output p {
   font-size: 12px;
   color: black;
+  text-align: left;
+}
+.mess-input h5, .mess-output h5 {
+  font-size: 10px;
+  color: black;
+  text-align: right;
 }
 /* DIV & CONTAINER ---------------------------------------------------------------- */
 .flex-cont {
@@ -230,10 +236,10 @@ a:hover {
   top: 100px;
   left: 60px;
   box-shadow: -1px 1px rgb(160, 173, 181);
-  padding: 5px;
+  padding: 2px 5px;
 }
 .mess-output {
-  height: 30px;
+  height: auto;
   width: 500px;
   background: #DCF8C6;
   z-index: 9999;
@@ -242,6 +248,8 @@ a:hover {
   top: 150px;
   left: 300px;
   box-shadow: -1px 1px rgb(160, 173, 181);
+  padding: 2px 5px;
+  /* display: none; */
 }
 
 /* MEDIA QUERY----------------------------------------------------------------- */
