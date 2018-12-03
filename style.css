@@ -264,6 +264,22 @@ a:hover {
   padding: 3px   5px;
   margin: 10px 0;
 }
+.ora-check {
+  display: flex;
+  justify-content: flex-end;
+}
+.ora-check > * {
+  margin: 0 5px;
+}
+.ora-check i {
+  font-size: 10px;
+}
+.fa-check {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 10px;
+}
 .nascondi {
   display: none;
 }

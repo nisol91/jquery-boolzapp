@@ -63,11 +63,18 @@ $(document).ready(function() {
 
 //inserisci messaggi verdi o bianchi
 
+var new_cont = $('.mess-output').clone()
+
 
   $('.invio').click(function() {
+    var copy = new_cont.clone();
+    $('.mess-main').append(copy);
+    copy.removeClass('nascondi');
+    // copy.addClass('messaggio');//dovevo farlo se no poi nella spunta hover non mi riconosceva il div dei messaggi in output (credo per colpa del fatto che il div originale sia nascosto)
+
     var mio_mex = $('.form-control-i').val();
     console.log(mio_mex);
-    $('.messages .mess-output p').text(mio_mex);
+    $(copy).find('p').text(mio_mex);
     $('.form-control-i').val('');
 
     var d = new Date();
@@ -79,7 +86,6 @@ $(document).ready(function() {
 
 //inserisci tramite tastiera
 
-  var new_cont = $('.mess-output').clone()
 
  $(document).keypress(function(event) {
    if (event.which == 13) {
@@ -101,4 +107,24 @@ $(document).ready(function() {
     }
     console.log(event.which);
   });
+
+//mostra spunta
+
+  $('.mess-input').mouseenter(function() {
+    $(this).find('.fa-check').removeClass('nascondi');
+  });
+  $('.mess-input').mouseleave(function() {
+    $(this).find('.fa-check').addClass('nascondi');
+  });
+
+//NON FUNZIONA SUI mess-output
+
+  $('.mess-main div').mouseenter(function() {
+    $(this).find('.fa-check').show()
+  });
+  $('.mess-main div').mouseleave(function() {
+    $(this).find('.fa-check').addClass('nascondi');
+  });
+
+
 });
