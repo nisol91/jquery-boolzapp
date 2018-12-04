@@ -11,8 +11,8 @@ $(document).ready(function() {
 
   var orari_accesso = [ '12:50', '18:42', '15:30', '10:59', '14:02']
   var contatto = {
-    'numero' : 6,
-    'nome' : ['', 'Guido', 'Giulia', 'Francesco', 'Cecilia', 'Andrea', 'Riccardo'],
+    'numero' : 7,
+    'nome' : ['', 'Guido', 'Giulia', 'Francesco', 'Cecilia', 'Andrea', 'Riccardo', 'Luca'],
     'testi' : ['', 'Ciao, come va?', 'Domani a che ora ci troviamo?', 'Buonasera', 'Buonanotte', 'Posso chiamarti? :)', 'Ottimo!!'],
     'immagine' : ['', "https://images.wallpaperscraft.com/image/mountains_clouds_trees_snow_119169_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_starry_sky_milky_way_night_119973_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_trees_frozen_lake_winter_landscape_93344_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_landscape_mt_rainier_washington_grass_hdr_90605_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_cordillera_sky_sunset_sun_clouds_95556_3840x2160.jpg"],
     'orario' : ['', '12:50', '18:42', '15:30', '10:59', '14:02'],
@@ -32,7 +32,7 @@ $(document).ready(function() {
    $('.conv-list .con-item:nth-child(' + i + ') img').attr('src', contatto.immagine[i]);
    $('.conv-list .con-item:nth-child(' + i + ') p').text(contatto.orario[i]);
   }
-
+//in alternativa posso usare each() di jquery. E' come un ciclo for.
   console.log($('.con-item').last().text());
   $('.con-item').last().hide();
 
@@ -40,9 +40,21 @@ $(document).ready(function() {
 
 //cambia nome contatto selezionato
 
+  $('.con-item').mouseenter(function(event) {
+    $('.con-item').removeClass('almostwhite')
+    $(this).toggleClass('almostwhite');
+  });
 
 
   $('.con-item').click(function(event) {
+    $('.con-item').removeClass('lightgrey')
+    $(this).addClass('lightgrey');
+
+    $('.mess-input').show();//reinizializza i messaggi cancellati permettendo nuovamente di vederli
+    $('.mess-output').remove();//reinizializza i messaggi scritti cancellandoli
+
+
+
     $('.messages').show();
     $('.logo-rimpiazzo').hide();
     var nome = $(this).find('h3').text();
@@ -99,7 +111,7 @@ $('.mess-output').first().hide();
    if (event.which == 13) {
      var copy = new_cont.clone();
      $('.mess-main').append(copy);
-     
+
      var mio_mex = $('.form-control-i').val();
      console.log(mio_mex);
      $(copy).find('p').text(mio_mex);
@@ -116,6 +128,8 @@ $('.mess-output').first().hide();
 
 //mostra spunta
 
+
+
   $('.mess-input').mouseenter(function() {
     $(this).find('.fa-check').removeClass('nascondi');
   });
@@ -123,14 +137,40 @@ $('.mess-output').first().hide();
     $(this).find('.fa-check').addClass('nascondi');
   });
 
-//NON FUNZIONA SUI mess-output (per colpa del clone credo)
 
-  $('.mess-main div').mouseenter(function() {
+  $('.mess-output').mouseenter(function() {
     $(this).find('.fa-check').removeClass('nascondi');
   });
-  $('.mess-main div').mouseleave(function() {
+  $('.mess-output').mouseleave(function() {
     $(this).find('.fa-check').addClass('nascondi');
   });
 
+//menu a tendina
 
+  $('.tendina_inp').hide();
+
+
+  $('.fa_inp').click(function() {
+    $('.tendina_inp').slideToggle('slow');
+  });
+  $('.tendina_inp').mouseleave(function() {
+    $('.tendina_inp').slideUp('slow');
+  });
+  //---
+  $('.tendina_out').hide();
+
+
+  $('.fa_ out').click(function() {
+    $('.tendina_out').slideDown('slow');
+  });
+  $('.tendina_out').mouseleave(function() {
+    $('.tendina_out').slideUp('slow');
+  });
+
+//delete message
+
+  $('.tendina_inp .delete').click(function() {
+    $(this).parent('.tendina_inp').parent('.mess-input').hide();
+  });
+//--
 });
