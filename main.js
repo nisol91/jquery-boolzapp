@@ -108,7 +108,7 @@ $('.mess-output').first().hide();
 //inserisci tramite tasto invio
 
 
- $(document).keypress(function(event) {
+ $('.form-mex').keypress(function(event) {
    if (event.which == 13) {
      var copy = new_cont.clone();
      $('.mess-main').append(copy);
@@ -124,7 +124,7 @@ $('.mess-output').first().hide();
      console.log(n);
      $('.messages .mess-output h5').text(n + ':' + m);
     }
-    // console.log(event.which);
+    console.log(event.which);
   });
 
 //mostra spunta
@@ -178,7 +178,6 @@ $('.mess-output').first().hide();
 
 //ricerca contatti (each() mi cicla su tutti i con-item)
 
-//prima di tutto lavoro con le stringhe:
 
 
   $('.fa-search').click(function() {
