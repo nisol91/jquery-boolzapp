@@ -19,10 +19,10 @@ $(document).ready(function() {
     'stato' : ['', 'Online', 'ultimo accesso alle ore ' + orari_accesso[random_int_number(0, 4)], 'Sta scrivendo']
   };
   var num_cont = contatto.numero;
-  console.log(contatto.nome[2]);
+  // console.log(contatto.nome[2]);
 
   var conversazione = $('.con-item').clone();
-  console.log(conversazione);
+  // console.log(conversazione);
 
   for (var i = 1; i <= num_cont; i++) {
     var copia = conversazione.clone();
@@ -32,6 +32,10 @@ $(document).ready(function() {
    $('.conv-list .con-item:nth-child(' + i + ') img').attr('src', contatto.immagine[i]);
    $('.conv-list .con-item:nth-child(' + i + ') p').text(contatto.orario[i]);
   }
+
+  console.log($('.con-item').last().text());
+  $('.con-item').last().hide();
+
 
 
 //cambia nome contatto selezionato
@@ -68,12 +72,13 @@ $(document).ready(function() {
 //inserisci messaggi verdi
 
 var new_cont = $('.mess-output').clone()
+$('.mess-output').first().hide();
 
 
   $('.invio').click(function() {
     var copy = new_cont.clone();
     $('.mess-main').append(copy);
-    copy.removeClass('nascondi');
+
 
     var mio_mex = $('.form-control-i').val();
     console.log(mio_mex);
@@ -94,9 +99,7 @@ var new_cont = $('.mess-output').clone()
    if (event.which == 13) {
      var copy = new_cont.clone();
      $('.mess-main').append(copy);
-     copy.removeClass('nascondi');
-
-
+     
      var mio_mex = $('.form-control-i').val();
      console.log(mio_mex);
      $(copy).find('p').text(mio_mex);
@@ -123,7 +126,7 @@ var new_cont = $('.mess-output').clone()
 //NON FUNZIONA SUI mess-output (per colpa del clone credo)
 
   $('.mess-main div').mouseenter(function() {
-    $(this).find('.fa-check').show()
+    $(this).find('.fa-check').removeClass('nascondi');
   });
   $('.mess-main div').mouseleave(function() {
     $(this).find('.fa-check').addClass('nascondi');
