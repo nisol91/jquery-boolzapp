@@ -65,7 +65,7 @@ $(document).ready(function() {
    $('.fa-location-arrow').show();
  });
 
-//inserisci messaggi verdi 
+//inserisci messaggi verdi
 
 var new_cont = $('.mess-output').clone()
 
@@ -87,7 +87,7 @@ var new_cont = $('.mess-output').clone()
     $('.messages .mess-output h5').text(n + ':' + m);
    });
 
-//inserisci tramite tastiera
+//inserisci tramite tasto invio
 
 
  $(document).keypress(function(event) {
