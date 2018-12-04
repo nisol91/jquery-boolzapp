@@ -270,6 +270,7 @@ a:hover {
   height: 80px;
   width: 100%;
   display: block;
+  margin-top: 10px;
 }
 .mess-input {
   height: auto;
@@ -282,7 +283,6 @@ a:hover {
   padding: 10px 10px;
   margin: 10px 0;
   margin-left: 3%;
-  float: left;
 }
 .mess-output {
   height: auto;
@@ -336,5 +336,8 @@ a:hover {
 }
 .lightgrey {
   background: lightgrey;
+}
+.templates {
+  display: none;
 }
 /* MEDIA QUERY----------------------------------------------------------------- */

@@ -25,12 +25,12 @@ $(document).ready(function() {
   var num_cont = contatto.numero;
   // console.log(contatto.nome[2]);
 
-  var conversazione = $('.con-item').clone();
+  var clone_4 = $('.con-item').clone();
   // console.log(conversazione);
 
   for (var i = 1; i <= num_cont; i++) {
-    var copia = conversazione.clone();
-   $('.conv-list').append(copia);
+    var copy_4 = clone_4.clone();//qui devo fare cosi perche cosi ogni volta ho un modello vuoto: conversazione e' il mio modello vuoto copiato dal template, poi a ogni ciclo lo copio per riempirlo
+   $('.conv-list').append(copy_4);
    $('.conv-list .con-item:nth-child(' + i + ') h3').text(contatto.nome[i])
    $('.conv-list .con-item:nth-child(' + i + ') h4').text(contatto.testi[i])
    $('.conv-list .con-item:nth-child(' + i + ') img').attr('src', contatto.immagine[i]);
@@ -39,11 +39,12 @@ $(document).ready(function() {
 //in alternativa posso usare each() di jquery. E' come un ciclo for.
 
   // console.log($('.con-item').last().text());
-  $('.con-item').last().hide();
 
 
 
 //cambia nome contatto selezionato
+
+var clone_3 = $('.mess-inp-contenitore').clone()
 
   $('.con-item').mouseenter(function(event) {
     $('.con-item').removeClass('almostwhite')
@@ -52,13 +53,17 @@ $(document).ready(function() {
 
 
   $('.con-item').click(function(event) {
+
+    $('.mess-inp-contenitore').remove()//reinizializza i messaggi ricevuti cancellandoli
     $('.con-item').removeClass('lightgrey')
     $(this).addClass('lightgrey');
 
     $('.mess-inp-contenitore').show();//reinizializza i messaggi cancellati permettendo nuovamente di vederli
     $('.mess-out-contenitore').remove();//reinizializza i messaggi scritti cancellandoli
 
-
+    // console.log(copy_3);
+    var copy_3 = $(clone_3).clone()//anche qui devo fare cosi perche cosi ogni volta ho un modello vuoto: e' il mio modello vuoto copiato dal template, poi a ogni azione(click,mouseenter..) lo copio per poi riempirlo
+    $('.mess-main').append(copy_3);
 
     $('.messages').show();
     $('.logo-rimpiazzo').hide();
@@ -71,8 +76,8 @@ $(document).ready(function() {
     console.log(nome);
     console.log(scritte);
     $('.messages h3').text(nome);
-    $('.messages .mess-input p').text(scritte);
-    $('.messages .mess-input h5').text(ora);
+    $(copy_3).find('p').text(scritte);
+    $(copy_3).find('h5').text(ora);
     $('.messages .text-person p').text(state);
     $('.messages .prof-pic img').attr('src', immagine_prof);
 
@@ -88,14 +93,12 @@ $(document).ready(function() {
 
 //inserisci messaggi verdi
 
-var new_cont = $('.mess-out-contenitore').clone()
-$('.mess-out-contenitore').first().hide();
-
-var new_cont_2 = $('.mess-inp-contenitore').clone()
+var clone = $('.mess-out-contenitore').clone()
+var clone_2 = $('.mess-inp-contenitore').clone()
 
 
   $('.invio').click(function() {
-    var copy = new_cont.clone();
+    var copy = $(clone).clone()//anche qui devo fare cosi perche cosi ogni volta ho un modello vuoto
     $('.mess-main').append(copy);
 
 
@@ -112,9 +115,9 @@ var new_cont_2 = $('.mess-inp-contenitore').clone()
 
 //risposta CPU
 
+    var copy_2 = $(clone_2).clone()
 
     var intervallo = setTimeout(function () {
-      var copy_2 = new_cont_2.clone();
       $('.mess-main').append(copy_2);
 
 
@@ -137,7 +140,7 @@ var new_cont_2 = $('.mess-inp-contenitore').clone()
 
  $('.form-mex').keypress(function(event) {
    if (event.which == 13) {
-     var copy = new_cont.clone();
+     var copy = $(clone).clone()
      $('.mess-main').append(copy);
 
      var mio_mex = $('.form-control-i').val();
@@ -155,7 +158,7 @@ var new_cont_2 = $('.mess-inp-contenitore').clone()
 
 
      var intervallo = setTimeout(function () {
-       var copy_2 = new_cont_2.clone();
+       var copy_2 = $(clone_2).clone()
        $('.mess-main').append(copy_2);
 
 
