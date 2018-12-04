@@ -55,8 +55,8 @@ $(document).ready(function() {
     $('.con-item').removeClass('lightgrey')
     $(this).addClass('lightgrey');
 
-    $('.mess-input').show();//reinizializza i messaggi cancellati permettendo nuovamente di vederli
-    $('.mess-output').remove();//reinizializza i messaggi scritti cancellandoli
+    $('.mess-inp-contenitore').show();//reinizializza i messaggi cancellati permettendo nuovamente di vederli
+    $('.mess-out-contenitore').remove();//reinizializza i messaggi scritti cancellandoli
 
 
 
@@ -88,8 +88,10 @@ $(document).ready(function() {
 
 //inserisci messaggi verdi
 
-var new_cont = $('.mess-output').clone()
-$('.mess-output').first().hide();
+var new_cont = $('.mess-out-contenitore').clone()
+$('.mess-out-contenitore').first().hide();
+
+var new_cont_2 = $('.mess-inp-contenitore').clone()
 
 
   $('.invio').click(function() {
@@ -107,7 +109,28 @@ $('.mess-output').first().hide();
     var m = d.getMinutes();
     console.log(n);
     $('.messages .mess-output h5').text(n + ':' + m);
-   });
+
+//risposta CPU
+
+
+    var intervallo = setTimeout(function () {
+      var copy_2 = new_cont_2.clone();
+      $('.mess-main').append(copy_2);
+
+
+      $(copy_2).find('p').text('ok');
+      $('.form-control-i').val('');
+      // console.log($(copy_2).find('p').text('ok'));
+
+      var d = new Date();
+      var n = d.getHours();
+      var m = d.getMinutes();
+      console.log(n);
+      $('.messages .mess-input h5').text(n + ':' + m);
+    }, 1000);
+
+
+  });
 
 //inserisci tramite tasto invio
 
@@ -127,6 +150,27 @@ $('.mess-output').first().hide();
      var m = d.getMinutes();
      console.log(n);
      $('.messages .mess-output h5').text(n + ':' + m);
+
+//risposta CPU
+
+
+     var intervallo = setTimeout(function () {
+       var copy_2 = new_cont_2.clone();
+       $('.mess-main').append(copy_2);
+
+
+       $(copy_2).find('p').text('ok');
+       $('.form-control-i').val('');
+       // console.log($(copy_2).find('p').text('ok'));
+
+       var d = new Date();
+       var n = d.getHours();
+       var m = d.getMinutes();
+       console.log(n);
+       $('.messages .mess-input h5').text(n + ':' + m);
+     }, 1000);
+
+
     }
     console.log(event.which);
   });
@@ -203,6 +247,7 @@ $('.mess-output').first().hide();
     // console.log($('.form-control').val());
 
   });
+
 
 
 

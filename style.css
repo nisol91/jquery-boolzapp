@@ -164,6 +164,12 @@ a:hover {
   justify-content: center;
   align-items: center;
 }
+.sear-ch > * {
+  width: 100%!important;
+}
+#form-search {
+  width: 100%!important;
+}
 .bg-light {
   background-color: transparent!important;
 }
@@ -190,8 +196,9 @@ a:hover {
   width: 80%;
 }
 .form-control-i {
-  width: 90%!important;
+  width: 100%!important;
   height: 40px;
+  margin-left: 30px;
   padding: 10px 35px;
   font-size: 13px;
   line-height: 5.5;
@@ -259,6 +266,11 @@ a:hover {
   width: 30%;
   float: left;
 }
+.mess-inp-contenitore, .mess-out-contenitore {
+  height: 80px;
+  width: 100%;
+  display: block;
+}
 .mess-input {
   height: auto;
   width: 200px;
@@ -270,7 +282,7 @@ a:hover {
   padding: 10px 10px;
   margin: 10px 0;
   margin-left: 3%;
-  display: block;
+  float: left;
 }
 .mess-output {
   height: auto;
@@ -283,7 +295,6 @@ a:hover {
   padding: 10px 10px;
   margin: 10px 0;
   margin-right: 30px;
-  display: block;
   float: right;
 }
 .ora-check {
