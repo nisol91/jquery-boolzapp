@@ -3,6 +3,10 @@ $(document).ready(function() {
 
 //funzioni
 
+// $('#form-search').reset();perche non va?
+// $('#form-mex').reset();
+
+
   function random_int_number(min, max) {
     return Math.floor(Math.random() * (max - min +  1) + min);
   }

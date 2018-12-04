@@ -59,6 +59,9 @@ a:hover {
     opacity: 1;
     margin-left: 20px;
 }
+.form-inline {
+  width: 100%!important;
+}
 .form-inline i {
   color: lightgrey;
   position: absolute;
@@ -141,22 +144,25 @@ a:hover {
   height: 100vh;
 }
 .conv {
-  height: 100vh;
+  height: 100%;
   width: 35%;
   border-right: 1px solid rgb(215, 213, 213);
 }
 .hea-d {
   background: #eeeeee;
-  height: 12vh;
+  height: 80px;
   width: 100%;
   padding:15px 10px;
 }
 .sear-ch {
   background: transparent;
-  height: 12vh;
+  height: 80px;
   width: 100%;
   padding: 10px 10px;
   border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .bg-light {
   background-color: transparent!important;
@@ -181,10 +187,10 @@ a:hover {
   background: transparent;
   height: 50px;
   margin: 0;
-  width: 50%;
+  width: 80%;
 }
 .form-control-i {
-  width: 700px!important;
+  width: 90%!important;
   height: 40px;
   padding: 10px 35px;
   font-size: 13px;
@@ -198,10 +204,11 @@ a:hover {
 }
 .nav-i {
   padding: 0;
+  width: 100%;
 }
 .conv-list {
   width: 100%;
-  height: 76vh;
+  height: calc( 100vh - 160px );
   padding: 10px 0px;
   overflow-y: scroll;
 }
@@ -218,20 +225,20 @@ a:hover {
 }
 .mess-hea-d {
   background: #eeeeee;
-  height: 12vh;
+  height: 80px;
   width: 100%;
   padding:15px 10px;
 }
 .mess-foot {
   background: #eeeeee;
-  height: 12vh;
+  height: 80px;
   width: 100%;
-  padding:15px 10px;
+  padding: 20px 20px;
   /* margin-top: calc(100vh - 140px); */
 }
 .logo-rimpiazzo {
   width: 65%;
-  height: 100vh;
+  height: 100%;
   background: lightgrey;
   display: flex;
   justify-content: center;
@@ -239,11 +246,11 @@ a:hover {
 }
 .messages {
   width: 65%;
-  height: 100vh;
+  height: 100%;
   display: none;
 }
 .mess-main {
-  height: 76vh;
+  height: calc( 100vh - 160px );
   overflow-y: scroll;
   width: 100%;
 }
@@ -259,11 +266,11 @@ a:hover {
   z-index: 9999;
   border-radius: 5px;
   position: relative;
-  top: 100px;
-  left: 60px;
   box-shadow: -1px 1px rgb(160, 173, 181);
   padding: 10px 10px;
   margin: 10px 0;
+  margin-left: 3%;
+  display: block;
 }
 .mess-output {
   height: auto;
@@ -272,11 +279,12 @@ a:hover {
   z-index: 9999;
   border-radius: 5px;
   position: relative;
-  top: 150px;
-  left: 300px;
   box-shadow: -1px 1px rgb(160, 173, 181);
   padding: 10px 10px;
   margin: 10px 0;
+  margin-right: 30px;
+  display: block;
+  float: right;
 }
 .ora-check {
   display: flex;
