@@ -129,6 +129,9 @@ a:hover {
   margin: 20px;
   cursor: pointer;
 }
+.fa-search {
+  cursor: pointer;
+}
 /* DIV & CONTAINER ---------------------------------------------------------------- */
 .flex-cont {
   display: flex;

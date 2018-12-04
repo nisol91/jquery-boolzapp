@@ -12,7 +12,7 @@ $(document).ready(function() {
   var orari_accesso = [ '12:50', '18:42', '15:30', '10:59', '14:02']
   var contatto = {
     'numero' : 7,
-    'nome' : ['', 'Guido', 'Giulia', 'Francesco', 'Cecilia', 'Andrea', 'Riccardo', 'Luca'],
+    'nome' : ['', 'Guido', 'Franco', 'Francesco', 'Cecilia', 'Andrea', 'Riccardo', 'Anna'],
     'testi' : ['', 'Ciao, come va?', 'Domani a che ora ci troviamo?', 'Buonasera', 'Buonanotte', 'Posso chiamarti? :)', 'Ottimo!!'],
     'immagine' : ['', "https://images.wallpaperscraft.com/image/mountains_clouds_trees_snow_119169_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_starry_sky_milky_way_night_119973_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_trees_frozen_lake_winter_landscape_93344_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_landscape_mt_rainier_washington_grass_hdr_90605_3840x2160.jpg", "https://images.wallpaperscraft.com/image/mountains_cordillera_sky_sunset_sun_clouds_95556_3840x2160.jpg"],
     'orario' : ['', '12:50', '18:42', '15:30', '10:59', '14:02'],
@@ -33,7 +33,8 @@ $(document).ready(function() {
    $('.conv-list .con-item:nth-child(' + i + ') p').text(contatto.orario[i]);
   }
 //in alternativa posso usare each() di jquery. E' come un ciclo for.
-  console.log($('.con-item').last().text());
+
+  // console.log($('.con-item').last().text());
   $('.con-item').last().hide();
 
 
@@ -123,7 +124,7 @@ $('.mess-output').first().hide();
      console.log(n);
      $('.messages .mess-output h5').text(n + ':' + m);
     }
-    console.log(event.which);
+    // console.log(event.which);
   });
 
 //mostra spunta
@@ -173,4 +174,33 @@ $('.mess-output').first().hide();
     $(this).parent('.tendina_inp').parent('.mess-input').hide();
   });
 //--
+
+
+//ricerca contatti (each() mi cicla su tutti i con-item)
+
+//prima di tutto lavoro con le stringhe:
+
+
+  $('.fa-search').click(function() {
+    $('.con-item').show();
+    $('.con-item').each(function() {
+      var writtenValue = $('.form-control').val();
+      var nthContactName = $(this).find('h3').text();
+      var check = nthContactName.includes(writtenValue)
+
+      console.log(writtenValue);
+      console.log(nthContactName);
+      console.log(check);
+      if (check == false) {
+        $(this).hide();
+        console.log($(this).find('h3').text());
+      }
+    });
+
+    // console.log($('.form-control').val());
+
+  });
+
+
+
 });
