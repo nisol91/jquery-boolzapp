@@ -50,6 +50,9 @@ var clone_3 = $('.mess-inp-contenitore').clone()
     $('.con-item').removeClass('almostwhite')
     $(this).toggleClass('almostwhite');
   });
+  $('.con-item').mouseleave(function(event) {
+    $('.con-item').removeClass('almostwhite')
+  });
 
 
   $('.con-item').click(function(event) {
@@ -63,6 +66,7 @@ var clone_3 = $('.mess-inp-contenitore').clone()
 
     // console.log(copy_3);
     var copy_3 = $(clone_3).clone()//anche qui devo fare cosi perche cosi ogni volta ho un modello vuoto: e' il mio modello vuoto copiato dal template, poi a ogni azione(click,mouseenter..) lo copio per poi riempirlo
+    //in alternativa posso usare il metodo clear template, ovvero appendere il div template vuoto alla fine. Penso sia analogo
     $('.mess-main').append(copy_3);
 
     $('.messages').show();
@@ -232,11 +236,14 @@ var clone_2 = $('.mess-inp-contenitore').clone()
 
 
   $('.fa-search').click(function() {
+    var count = [];
     $('.con-item').show();
     $('.con-item').each(function() {
       var writtenValue = $('.form-control').val();
+      var wVU = writtenValue.toUpperCase();
       var nthContactName = $(this).find('h3').text();
-      var check = nthContactName.includes(writtenValue)
+      var nCN = nthContactName.toUpperCase();
+      var check = nCN.includes(wVU);
 
       console.log(writtenValue);
       console.log(nthContactName);
@@ -244,11 +251,16 @@ var clone_2 = $('.mess-inp-contenitore').clone()
       if (check == false) {
         $(this).hide();
         console.log($(this).find('h3').text());
+      } else {
+        count.push('1');
       }
+      console.log(count);
     });
-
+    if (count.length == 0) {
+      // console.log('ups');
+      $('.conv-list').text('Nessun contatto corrispondente').css('font-size', '30px').css('text-align', 'center').css('color', 'grey');
+    }
     // console.log($('.form-control').val());
-
   });
 
 
