@@ -222,6 +222,12 @@ var clone_2 = $('.mess-inp-contenitore').clone()
      }, 1000);
 
 
+//----------------
+
+
+     var intervallo_2 = setTimeout(function () {
+       $(copy).find('.fa-check-double').css('color', 'rgb(25, 131, 179)');
+     }, 2000);
     }
     console.log(event.which);
   });
