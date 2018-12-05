@@ -125,7 +125,7 @@ a:hover {
 .logo-rimpiazzo img {
   width: 200px;
 }
-.tendina_inp h1 {
+.tendina_inp h1, .tendina_out h1 {
   font-size: 15px;
   color: black;
   text-align: left;
