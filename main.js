@@ -26,6 +26,8 @@ $(document).ready(function() {
   // console.log(contatto.nome[2]);
 
   var clone_4 = $('.con-item').clone();
+  var clone_5 = $('.conversaz').clone();
+
   // console.log(conversazione);
 
   for (var i = 1; i <= num_cont; i++) {
@@ -35,7 +37,15 @@ $(document).ready(function() {
    $('.conv-list .con-item:nth-child(' + i + ') h4').text(contatto.testi[i])
    $('.conv-list .con-item:nth-child(' + i + ') img').attr('src', contatto.immagine[i]);
    $('.conv-list .con-item:nth-child(' + i + ') p').text(contatto.orario[i]);
+
   }
+  $('.con-item').each(function() {
+
+    var copy_5 = clone_5.clone();
+    $('.mess-main').append(copy_5);
+    console.log(copy_5);
+  });
+
 //in alternativa posso usare each() di jquery. E' come un ciclo for.
 
   // console.log($('.con-item').last().text());
@@ -59,20 +69,20 @@ $(document).ready(function() {
 
     $('.con-item').removeClass('lightgrey')
     $(this).addClass('lightgrey');
-
+    //
     $('.mess-inp-contenitore').hide();
     $('.mess-out-contenitore').hide();
 
 
     //questo e' MOLTO IMPORTANTE: mi serve per prendere la posizione del contatto cliccato
     //e andare ad agire sull equivaente posizione di conversazione.
-    // var numContatto = $(this).index();
-    // console.log(numContatto);
-    // var thisContainer = $('.mess-out-contenitore').eq(numContatto)
-    // console.log(thisContainer);
-    //
-    //
-    // thisContainer.show();
+    var numContatto = $(this).index();
+    console.log(numContatto);
+    var thisContainer = $('.conversaz').eq(numContatto)
+    console.log(thisContainer);
+
+
+    thisContainer.show();
 
     // $('.mess-inp-contenitore').remove()//reinizializza i messaggi ricevuti cancellandoli
     // $('.mess-out-contenitore').remove();//reinizializza i messaggi scritti cancellandoli
@@ -80,7 +90,7 @@ $(document).ready(function() {
 
 
     var copy_3 = $(clone_3).clone()//anche qui devo fare cosi perche cosi ogni volta ho un modello vuoto: e' il mio modello vuoto copiato dal template, poi a ogni azione(click,mouseenter..) lo copio per poi riempirlo
-    $('.mess-main').append(copy_3);
+    $(thisContainer).append(copy_3);
     console.log(copy_3);
 
     $('.messages').show();
@@ -141,7 +151,7 @@ $(document).ready(function() {
 
   $('.invio').click(function() {
     var copy = $(clone).clone()//anche qui devo fare cosi perche cosi ogni volta ho un modello vuoto
-    $('.mess-main').append(copy);
+    $(thisContainer).append(copy);
 
 
 
