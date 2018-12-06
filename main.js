@@ -52,25 +52,23 @@ $(document).ready(function() {
 
 //cambia nome contatto selezionato
 
-var clone_3 = $('.mess-inp-contenitore').clone()
-
-
-
+  var clone_3 = $('.mess-inp-contenitore').clone()
 
   $('.con-item').click(function(event) {
-
 
 
     $('.con-item').removeClass('lightgrey')
     $(this).addClass('lightgrey');
 
-    $('.mess-inp-contenitore').remove();
+    $('.mess-inp-contenitore').hide();
+    $('.mess-out-contenitore').hide();
+
 
     //questo e' MOLTO IMPORTANTE: mi serve per prendere la posizione del contatto cliccato
     //e andare ad agire sull equivaente posizione di conversazione.
     // var numContatto = $(this).index();
     // console.log(numContatto);
-    // var thisContainer = $('.mess-inp-contenitore').eq(numContatto)
+    // var thisContainer = $('.mess-out-contenitore').eq(numContatto)
     // console.log(thisContainer);
     //
     //
@@ -81,9 +79,9 @@ var clone_3 = $('.mess-inp-contenitore').clone()
     // $('.mess-inp-contenitore .con-item').show();//reinizializza i messaggi cancellati permettendo nuovamente di vederli
 
 
-    console.log(copy_3);
     var copy_3 = $(clone_3).clone()//anche qui devo fare cosi perche cosi ogni volta ho un modello vuoto: e' il mio modello vuoto copiato dal template, poi a ogni azione(click,mouseenter..) lo copio per poi riempirlo
     $('.mess-main').append(copy_3);
+    console.log(copy_3);
 
     $('.messages').show();
     $('.logo-rimpiazzo').hide();
@@ -144,6 +142,7 @@ var clone_3 = $('.mess-inp-contenitore').clone()
   $('.invio').click(function() {
     var copy = $(clone).clone()//anche qui devo fare cosi perche cosi ogni volta ho un modello vuoto
     $('.mess-main').append(copy);
+
 
 
     var mio_mex = $('.form-control-i').val();
