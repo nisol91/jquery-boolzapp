@@ -41,11 +41,7 @@ $(document).ready(function() {
   // console.log($('.con-item').last().text());
 
 
-
-//cambia nome contatto selezionato
-
-var clone_3 = $('.mess-inp-contenitore').clone()
-
+  //hover e active al con-item
   $('.con-item').mouseenter(function(event) {
     $('.con-item').removeClass('almostwhite')
     $(this).toggleClass('almostwhite');
@@ -54,41 +50,40 @@ var clone_3 = $('.mess-inp-contenitore').clone()
     $('.con-item').removeClass('almostwhite')
   });
 
+//cambia nome contatto selezionato
+
+var clone_3 = $('.mess-inp-contenitore').clone()
+
+
+
 
   $('.con-item').click(function(event) {
-    $('.mess-inp-contenitore').remove()//reinizializza i messaggi ricevuti cancellandoli
+
+
+
     $('.con-item').removeClass('lightgrey')
     $(this).addClass('lightgrey');
 
-    $('.mess-out-contenitore').remove();//reinizializza i messaggi scritti cancellandoli
-    $('.mess-inp-contenitore .con-item').show();//reinizializza i messaggi cancellati permettendo nuovamente di vederli
+    $('.mess-inp-contenitore').remove();
 
-
-    // console.log(copy_3);
-    // var copy_3 = $(clone_3).clone()//anche qui devo fare cosi perche cosi ogni volta ho un modello vuoto: e' il mio modello vuoto copiato dal template, poi a ogni azione(click,mouseenter..) lo copio per poi riempirlo
-    // $('.mess-main').append(copy_3);
+    //questo e' MOLTO IMPORTANTE: mi serve per prendere la posizione del contatto cliccato
+    //e andare ad agire sull equivaente posizione di conversazione.
+    // var numContatto = $(this).index();
+    // console.log(numContatto);
+    // var thisContainer = $('.mess-inp-contenitore').eq(numContatto)
+    // console.log(thisContainer);
     //
-    // $('.messages').show();
-    // $('.logo-rimpiazzo').hide();
-    // var nome = $(this).find('h3').text();
-    // var scritte = $(this).find('h4').text();
-    // var ora = $(this).find('p').text();
-    // var immagine_prof = $(this).find('img').attr('src');
-    // var state = contatto.stato[random_int_number(0, 3)];
     //
-    // console.log(nome);
-    // console.log(scritte);
-    // $('.messages h3').text(nome);
-    // $(copy_3).find('p').text(scritte);
-    // $(copy_3).find('h5').text(ora);
-    // $('.messages .text-person p').text(state);
-    // $('.messages .prof-pic img').attr('src', immagine_prof);
+    // thisContainer.show();
+
+    // $('.mess-inp-contenitore').remove()//reinizializza i messaggi ricevuti cancellandoli
+    // $('.mess-out-contenitore').remove();//reinizializza i messaggi scritti cancellandoli
+    // $('.mess-inp-contenitore .con-item').show();//reinizializza i messaggi cancellati permettendo nuovamente di vederli
 
 
-//in alternativa posso usare il metodo clear template, ovvero appendere il div template vuoto alla fine. Penso sia analogo
-//ricorda di aggiungere il div clear(vuoto) nel template
-
-    $('.mess-main').append(clone_3);
+    console.log(copy_3);
+    var copy_3 = $(clone_3).clone()//anche qui devo fare cosi perche cosi ogni volta ho un modello vuoto: e' il mio modello vuoto copiato dal template, poi a ogni azione(click,mouseenter..) lo copio per poi riempirlo
+    $('.mess-main').append(copy_3);
 
     $('.messages').show();
     $('.logo-rimpiazzo').hide();
@@ -101,13 +96,35 @@ var clone_3 = $('.mess-inp-contenitore').clone()
     console.log(nome);
     console.log(scritte);
     $('.messages h3').text(nome);
-    $(clone_3).find('p').text(scritte);
-    $(clone_3).find('h5').text(ora);
+    $(copy_3).find('p').text(scritte);
+    $(copy_3).find('h5').text(ora);
     $('.messages .text-person p').text(state);
     $('.messages .prof-pic img').attr('src', immagine_prof);
 
-    var clearTemplate = $('.template .cl-t').clone();
-    $('.mess-main').append(clearTemplate);
+
+//in alternativa posso usare il metodo clear template, ovvero appendere il div template vuoto alla fine. Penso sia analogo
+//ricorda di aggiungere il div clear(vuoto) nel template
+
+    // $('.mess-main').append(clone_3);
+    //
+    // $('.messages').show();
+    // $('.logo-rimpiazzo').hide();
+    // var nome = $(this).find('h3').text();
+    // var scritte = $(this).find('h4').text();
+    // var ora = $(this).find('p').text();
+    // var immagine_prof = $(this).find('img').attr('src');
+    // var state = contatto.stato[random_int_number(0, 3)];
+    //
+    // // console.log(nome);
+    // // console.log(scritte);
+    // $('.messages h3').text(nome);
+    // $(clone_3).find('p').text(scritte);
+    // $(clone_3).find('h5').text(ora);
+    // $('.messages .text-person p').text(state);
+    // $('.messages .prof-pic img').attr('src', immagine_prof);
+    //
+    // var clearTemplate = $('.template .cl-t').clone();
+    // $('.mess-main').append(clearTemplate);
 
   });
 
@@ -120,8 +137,8 @@ var clone_3 = $('.mess-inp-contenitore').clone()
 
 //inserisci messaggi verdi
 
-var clone = $('.mess-out-contenitore').clone()
-var clone_2 = $('.mess-inp-contenitore').clone()
+  var clone = $('.mess-out-contenitore').clone()
+  var clone_2 = $('.mess-inp-contenitore').clone()
 
 
   $('.invio').click(function() {
@@ -130,7 +147,7 @@ var clone_2 = $('.mess-inp-contenitore').clone()
 
 
     var mio_mex = $('.form-control-i').val();
-    console.log(mio_mex);
+    // console.log(mio_mex);
     $(copy).find('p').text(mio_mex);
     $('.form-control-i').val('');
     $('.tendina_out').hide();//cosi ho eliminato la tendina all apertura delcontatto senza dover usare classe nascondi
@@ -138,7 +155,7 @@ var clone_2 = $('.mess-inp-contenitore').clone()
     var d = new Date();
     var n = d.getHours();
     var m = d.getMinutes();
-    console.log(n);
+    // console.log(n);
     if (m >= 10) {
       $('.messages .mess-output h5').text(n + ':' + m);
     } else if (m < 10) {
@@ -160,7 +177,7 @@ var clone_2 = $('.mess-inp-contenitore').clone()
       var d = new Date();
       var n = d.getHours();
       var m = d.getMinutes();
-      console.log(m);
+      // console.log(m);
       if (m >= 10) {
         $('.messages .mess-input h5').text(n + ':' + m);
       } else if (m < 10) {
@@ -181,7 +198,7 @@ var clone_2 = $('.mess-inp-contenitore').clone()
      $('.mess-main').append(copy);
 
      var mio_mex = $('.form-control-i').val();
-     console.log(mio_mex);
+     // console.log(mio_mex);
      $(copy).find('p').text(mio_mex);
      $('.form-control-i').val('');
      $('.tendina_out').hide();//cosi ho eliminato la tendina all apertura delcontatto senza dover usare classe nascondi
@@ -190,7 +207,7 @@ var clone_2 = $('.mess-inp-contenitore').clone()
      var d = new Date();
      var n = d.getHours();
      var m = d.getMinutes();
-     console.log(m);
+     // console.log(m);
      if (m >= 10) {
        $('.messages .mess-output h5').text(n + ':' + m);
      } else if (m < 10) {
@@ -212,7 +229,7 @@ var clone_2 = $('.mess-inp-contenitore').clone()
        var d = new Date();
        var n = d.getHours();
        var m = d.getMinutes();
-       console.log(n);
+       // console.log(n);
        if (m >= 10) {
          $('.messages .mess-input h5').text(n + ':' + m);
        } else if (m < 10) {
@@ -227,9 +244,9 @@ var clone_2 = $('.mess-inp-contenitore').clone()
 
      var intervallo_2 = setTimeout(function () {
        $(copy).find('.fa-check-double').css('color', 'rgb(25, 131, 179)');
-     }, 2000);
+      }, 2000);
     }
-    console.log(event.which);
+    // console.log(event.which);
   });
 
 //mostra spunta
@@ -328,34 +345,35 @@ var clone_2 = $('.mess-inp-contenitore').clone()
   //   // console.log($('.form-control').val());
   // });
 
-//in alternativa posso dirgli di applicare le mie regole al keydown
+//in alternativa posso dirgli di applicare le mie regole al keyup
 
-$('.form-control').keyup(function() {
-  var count = [];
-  $('.con-item').show();
-  $('.con-item').each(function() {
-    var writtenValue = $('.form-control').val();
-    var wVU = writtenValue.toLowerCase();
-    var nthContactName = $(this).find('h3').text();
-    var nCN = nthContactName.toLowerCase();
-    var check = nCN.includes(wVU);
+  $('.form-control').keyup(function() {
+    var count = [];
+    $('.con-item').show();
+    $('.con-item').each(function() {
+      var writtenValue = $('.form-control').val();
+      var wVU = writtenValue.toLowerCase();
+      var nthContactName = $(this).find('h3').text();
+      var nCN = nthContactName.toLowerCase();
+      var check = nCN.includes(wVU);
 
-    console.log(writtenValue);
-    console.log(nthContactName);
-    console.log(check);
-    if (check == false) {
-      $(this).hide();
-      console.log($(this).find('h3').text());
-    } else {
-      count.push('1');
-    }
-    console.log(count);
+      // console.log(writtenValue);
+      // console.log(nthContactName);
+      // console.log(check);
+      if (check == false) {
+        $(this).hide();
+        console.log($(this).find('h3').text());
+      } else {
+        count.push('1');
+      }
+      console.log(count);
+    });
+    // if (count.length == 0) {
+      //   // console.log('ups');
+      //   $('.conv-list').text('Nessun contatto corrispondente').css('font-size', '30px').css('text-align', 'center').css('color', 'grey');
+      // }
+
+    console.log($('.form-control').val());
   });
-  // if (count.length == 0) {
-  //   // console.log('ups');
-  //   $('.conv-list').text('Nessun contatto corrispondente').css('font-size', '30px').css('text-align', 'center').css('color', 'grey');
-  // }
-  console.log($('.form-control').val());
-});
 
 });
