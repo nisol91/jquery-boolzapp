@@ -345,4 +345,9 @@ a:hover {
 .templates {
   display: none;
 }
+.conversaz {
+  height: 100%;
+  width: 100%;
+  /* display: none; */
+}
 /* MEDIA QUERY----------------------------------------------------------------- */
